@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/vcr_96.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Title/Buttons/StartButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Title/Buttons/StartButton.gd" type="Script" id=3]
+[ext_resource path="res://Art/Characters/Purple.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/vcr_24.tres" type="DynamicFont" id=5]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1160.0
+margin_bottom = 640.0
+
+[node name="Label" type="Label" parent="Menu"]
+margin_right = 1040.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.101961, 0.0980392, 0.196078, 1 )
+custom_constants/shadow_offset_y = 10
+text = "The Calm Before"
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 89.0
+margin_right = 1040.0
+margin_bottom = 322.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 518.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="StartButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_top = 86.0
+margin_right = 518.0
+margin_bottom = 146.0
+script = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+margin_left = 522.0
+margin_right = 1040.0
+margin_bottom = 233.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
+margin_left = 241.0
+margin_top = 108.0
+margin_right = 277.0
+margin_bottom = 125.0
+texture = ExtResource( 4 )
+
+[node name="Credits" type="Label" parent="Menu"]
+margin_top = 326.0
+margin_right = 1040.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Programming: Kevin Thompson
+Art: August
+Music: Δelysium"

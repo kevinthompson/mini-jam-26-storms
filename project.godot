@@ -15,10 +15,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Storms"
+config/name="The Calm Before"
+run/main_scene="res://Scenes/Title/TitleScreen.tscn"
 
 [display]
 
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -52,8 +55,15 @@ mouse_left_click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.258824, 0.298039, 0.431373, 1 )
 environment/default_environment="res://default_env.tres"
