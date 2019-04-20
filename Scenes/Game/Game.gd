@@ -20,7 +20,7 @@ func _ready() -> void:
   var view_size = get_viewport_rect().size / ctrans.get_scale()
 
   min_pos = -ctrans.get_origin() / ctrans.get_scale()
-  max_pos = min_pos + view_size
+  max_pos = min_pos + view_size - Vector2(0,100)
 
   spawn_tribes()
 
@@ -33,7 +33,7 @@ func spawn_tribes() -> void:
   for i in range(tribe_count):
     var spawn_position = Vector2(rand_range(min_pos.x + 64, max_pos.x - 64), rand_range(min_pos.y + 64, max_pos.y - 64))
     var new_tribe = tribe_scene.instance()
-    new_tribe.position = spawn_position
+    new_tribe.get_node("Sprite").position = spawn_position
     tribes.append(new_tribe)
     $World/Tribes.add_child(new_tribe)
 

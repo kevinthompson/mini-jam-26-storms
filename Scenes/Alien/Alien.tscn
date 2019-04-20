@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/Characters/Purple.png" type="Texture" id=2]
 [ext_resource path="res://Art/Emotes/Happiness.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 5.18332
 height = 6.46191
 
@@ -49,8 +49,9 @@ texture = ExtResource( 2 )
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -1.52588e-05, -0.435974 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

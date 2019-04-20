@@ -14,8 +14,8 @@ var max_pos
 # Lifecycle Methods
 # ==============================
 func _ready() -> void:
-  min_pos = Vector2(-40,-40)
-  max_pos = Vector2(40,40)
+  min_pos = $Sprite.position - Vector2(40,40)
+  max_pos = $Sprite.position + Vector2(40,40)
 
   spawn_aliens()
 
@@ -28,7 +28,7 @@ func spawn_aliens() -> void:
   for i in range(alien_count):
     var spawn_position = Vector2(rand_range(min_pos.x, max_pos.x), rand_range(min_pos.y, max_pos.y))
     var new_alien = alien_scene.instance()
-    new_alien.position = Vector2()
+    new_alien.position = spawn_position
     aliens.append(new_alien)
     add_child(new_alien)
 

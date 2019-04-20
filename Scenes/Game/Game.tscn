@@ -1,43 +1,44 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Tribe/Tribe.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Game/Interface.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/vcr_96.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/Game/TitleButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Game/TitleButton.gd" type="Script" id=6]
-[ext_resource path="res://Art/Buttons/Weather.png" type="Texture" id=7]
+[ext_resource path="res://Art/Landscape/Grass.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Game/Interface.gd" type="Script" id=4]
+[ext_resource path="res://Fonts/vcr_96.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/Game/TitleButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Game/TitleButton.gd" type="Script" id=7]
+[ext_resource path="res://Art/Buttons/Weather.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 40, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 120, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 80, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 200, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 160, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 280, 0, 40, 40 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 240, 0, 40, 40 )
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -53,13 +54,21 @@ extents = Vector2( 646, 70 )
 script = ExtResource( 1 )
 tribe_scene = ExtResource( 2 )
 
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1290.0
+margin_bottom = 730.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
 [node name="World" type="YSort" parent="."]
 
 [node name="Tribes" type="YSort" parent="World"]
 
 [node name="Interface" type="CanvasLayer" parent="."]
 pause_mode = 2
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="Pause" type="Control" parent="Interface"]
 pause_mode = 2
@@ -82,7 +91,7 @@ margin_bottom = 640.0
 [node name="Label" type="Label" parent="Interface/Pause/Menu"]
 margin_right = 1040.0
 margin_bottom = 85.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.0980392, 0.196078, 1 )
 custom_constants/shadow_offset_y = 5
 text = "Paused"
@@ -101,12 +110,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="MainMenuButton" parent="Interface/Pause/Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
+[node name="MainMenuButton" parent="Interface/Pause/Menu/CenterRow/Buttons" instance=ExtResource( 6 )]
 margin_top = 205.0
 margin_bottom = 265.0
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Controls" type="Control" parent="Interface"]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -114,6 +124,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="StormButtons" type="HBoxContainer" parent="Interface/Controls"]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -171,6 +182,10 @@ anchor_mode = 0
 current = true
 
 [node name="Boundaries" type="Node2D" parent="Camera2D"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera2D/Boundaries"]
 editor/display_folded = true
@@ -195,7 +210,11 @@ position = Vector2( -10, 360 )
 shape = SubResource( 10 )
 
 [node name="TopWall" type="StaticBody2D" parent="Camera2D/Boundaries"]
+editor/display_folded = true
 position = Vector2( 620, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Boundaries/TopWall"]
 position = Vector2( 20, 0 )
